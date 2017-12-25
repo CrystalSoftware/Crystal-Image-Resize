@@ -7,7 +7,7 @@
             "name": "Crystal",
             "email": "info@crystalsoft.com.np",
             "role": "Company"
-        },
+        }
     ],
     "license": "BSD-3-Clause",
     "require": {
