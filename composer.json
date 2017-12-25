@@ -1,0 +1,24 @@
+{
+    "name": "Crystal/User",
+    "description": "A simple JWT based AUTH library for ZF3",
+    "homepage": "https://github.com/crystal/crystal-auth",
+    "authors": [
+        {
+            "name": "Crystal",
+            "email": "info@crystalsoft.com.np",
+            "role": "Company"
+        },
+    ],
+    "license": "BSD-3-Clause",
+    "require": {
+        "php": ">=7.0.0",
+    },
+    "autoload": {
+        "psr-4": {
+            "Crystal\\ImageResize\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": " 4.8.35"
+    }
+}
