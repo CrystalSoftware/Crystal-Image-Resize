@@ -1,6 +1,6 @@
 {
     "name": "crystal/crystal-image-resize",
-    "description": "A simple JWT based AUTH library for ZF3",
+    "description": "A zf3 module to for Image Resize Service",
     "homepage": "https://github.com/CrystalSoftware/Crystal-Image-Resize",
     "authors": [
         {
