@@ -18,6 +18,18 @@ class ImageResize {
 		}
 	}
 
+	public function getExtension() {
+		switch ($this->image_type) {
+		case IMAGETYPE_JPEG:
+			return 'jpg';
+			break;
+		case IMAGETYPE_PNG:
+			return 'png';
+		case IMAGETYPE_GIF:
+			return 'gif';
+		}
+	}
+
 	public function getType() {
 		return $this->image_type;
 	}
