@@ -1,13 +1,14 @@
 <?php
 
-namespace Crystal\ImageResize;
+namespace Crystal\ImageResize\Service;
 
 class ImageThumbnail {
 	protected $imageResize;
 	protected $publicFolder = '';
 
-	public function __construct(ImageResize $imageResize) {
+	public function __construct(ImageResize $imageResize, $publicFolder) {
 		$this->imageResize = $imageResize;
+		$this->publicFolder = realpath($publicFolder);
 	}
 	public function getImageResize() {
 		return $this->imageResize;
@@ -21,7 +22,6 @@ class ImageThumbnail {
 	}
 
 	public function getImage($file, $width = null, $height = null, $publicFolder = null) {
-
 		try {
 			if ($publicFolder) {
 				$this->publicFolder = $publicFolder;
@@ -30,8 +30,14 @@ class ImageThumbnail {
 			if (!defined('DS')) {
 				define('DS', DIRECTORY_SEPARATOR);
 			}
+
+			$file = realpath($file);	
+			if (!is_file($file)) {
+				return;
+			}
+
 			$this->imageResize->load($file);
-			$file = realpath($file);
+
 			$ext = pathinfo($file);
 
 			$ext = $ext['extension'];
@@ -60,13 +66,13 @@ class ImageThumbnail {
 			}
 
 			//remove application path + public folder from the image path
-			if ($publicFolder) {
-				$section_path = str_replace(realpath($this->publicFolder), '', $path);
+
+			if ($this->publicFolder) {
+				$section_path = str_replace($this->publicFolder, '', $path);
 			}
 
 			$parts = explode(DS, $section_path);
 			if (is_null($height) && is_null($width)) {
-				/// since no resize is required just return url
 				return implode('/', $parts) . '/' . $filename;
 			}
 

@@ -10,6 +10,7 @@ class ImageThumbnailFactory implements FactoryInterface {
 	public function __invoke(ContainerInterface $container,
 		$requestedName, array $options = null) {
 		$imageResize = $container->get(ImageResize::class);
-		return new ImageThumbnail($imageResize);
+		$config=$container->get('config');
+		return new ImageThumbnail($imageResize,$config['public_path']);
 	}
 }

@@ -3,7 +3,7 @@ namespace Crystal\ImageResize;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
 return [
-
+	'public_path' => '../public_html',
 	'controller_plugins' => [
 		'factories' => [
 			Controller\Plugin\ImageResize::class => Controller\Plugin\Factory\ImageResizeFactory::class,
