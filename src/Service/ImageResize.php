@@ -58,7 +58,6 @@ class ImageResize {
 				$image_type = $this->image_type;
 			}
 			if ($image_type == IMAGETYPE_JPEG) {
-				$filename = strtolower($filename);
 				if ($overwrite) {
 					if (is_file($filename)) {
 						unlink($filename);
@@ -74,7 +73,6 @@ class ImageResize {
 						unlink($filename);
 					}
 				}
-				$filename = strtolower($filename);
 				$filename = trim($filename, '.gif');
 				$filename = $filename . '.gif';
 				imagegif($this->image, $filename);
@@ -84,7 +82,6 @@ class ImageResize {
 						unlink($filename);
 					}
 				}
-				$filename = strtolower($filename);
 				if ($this->getHeight() == $this->image_original_height || $this->getWidth() == $this->image_original_width) {
 					$this->_resize($this->getWidth(), $this->getHeight());
 				}
